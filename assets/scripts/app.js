@@ -1,3 +1,4 @@
+// Test
 class DOMHelper {
   static clearEventListeners(element) {
     const clonedElement = element.cloneNode(true);
