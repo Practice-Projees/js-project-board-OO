@@ -136,7 +136,6 @@ class ProjectList {
         new ProjectItem(prjItem.id, this.switchProject.bind(this), this.type)
       );
     }
-    console.log(this.projects);
   }
 
   setSwitchHandlerFunction(switchHandlerFunction) {
@@ -171,8 +170,15 @@ class App {
     finishedProjectsList.setSwitchHandlerFunction(
       activeProjectsList.addProject.bind(activeProjectsList)
     );
-    console.log(activeProjectsList);
-    console.log(finishedProjectsList);
+
+    setTimeout(this.startAnalytics, 3000);
+  }
+
+  static startAnalytics() {
+    const analyticsScript = document.createElement('script');
+    analyticsScript.src = "assets/scripts/analytics.js";
+    analyticsScript.defer = true;
+    document.head.append(analyticsScript);
   }
 }
 
